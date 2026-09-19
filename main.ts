@@ -670,19 +670,19 @@ game.onUpdate(function () {
     }
 })
 game.onUpdate(function () {
-    if (mySprite.overlapsWith(K2)) {
-        tiles.setWallAt(tiles.getTileLocation(6, 23), false)
-        tiles.setWallAt(tiles.getTileLocation(3, 28), false)
-        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
-        sprites.destroy(K2)
-    }
-})
-game.onUpdate(function () {
     if (mySprite.overlapsWith(K1)) {
         tiles.setWallAt(tiles.getTileLocation(14, 20), false)
         tiles.setWallAt(tiles.getTileLocation(3, 29), false)
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
         sprites.destroy(K1)
+    }
+})
+game.onUpdate(function () {
+    if (mySprite.overlapsWith(K2)) {
+        tiles.setWallAt(tiles.getTileLocation(6, 23), false)
+        tiles.setWallAt(tiles.getTileLocation(3, 28), false)
+        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
+        sprites.destroy(K2)
     }
 })
 game.onUpdate(function () {
