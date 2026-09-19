@@ -104,6 +104,44 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         music.play(music.stringPlayable("F A - - - - - - ", 500), music.PlaybackMode.InBackground)
     }
 })
+function Portal_Setup () {
+    B1 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    O1 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile29`, function (sprite, location) {
     game.showLongText("You opened the correct door", DialogLayout.Bottom)
     tiles.setWallAt(tiles.getTileLocation(40, 5), false)
@@ -136,6 +174,8 @@ let Bill_1: Sprite = null
 let M3v = 0
 let Amount = 0
 let Gold = 0
+let O1: Sprite = null
+let B1: Sprite = null
 let projectile: Sprite = null
 let hc = 0
 let mySprite: Sprite = null
@@ -265,7 +305,7 @@ scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     `)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
+tiles.placeOnTile(mySprite, tiles.getTileLocation(31, 6))
 let Goal = sprites.create(img`
     . . f f f f f f f f f f f f f f f f 
     . . f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
@@ -528,6 +568,7 @@ let mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 tiles.placeOnTile(mySprite2, tiles.getTileLocation(46, 1))
+Render.setViewAngleInDegree(180)
 game.onUpdate(function () {
     if (Gold == 5) {
         Gold = 0
@@ -656,7 +697,7 @@ game.onUpdate(function () {
 })
 game.onUpdate(function () {
     if (mySprite.overlapsWith(Goal)) {
-        game.setGameOverMessage(true, "Congrats You beat the Beta Edition")
+        game.setGameOverMessage(true, "You beat the Beta Edition")
         game.setGameOverEffect(true, effects.confetti)
         game.gameOver(true)
     }
