@@ -656,7 +656,7 @@ game.onUpdate(function () {
 })
 game.onUpdate(function () {
     if (mySprite.overlapsWith(Goal)) {
-        game.setGameOverMessage(true, "You Escaped (kinda)")
+        game.setGameOverMessage(true, "Congrats You beat the Beta Edition")
         game.setGameOverEffect(true, effects.confetti)
         game.gameOver(true)
     }
