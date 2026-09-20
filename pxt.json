@@ -6,7 +6,8 @@
         "device": "*",
         "pxt-raycasting": "github:aqeeaqee/pxt-raycasting#v0.3.18",
         "arcade-text": "github:microsoft/arcade-text#v1.3.0",
-        "sam-tts": "github:Monk070/makecode-sam-speech#cd94131300b14ec0d0c625e91f668f5e51e49457"
+        "sam-tts": "github:Monk070/makecode-sam-speech#cd94131300b14ec0d0c625e91f668f5e51e49457",
+        "carnival": "github:microsoft/arcade-carnival#v0.0.7"
     },
     "files": [
         "main.blocks",
