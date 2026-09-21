@@ -11,4 +11,7 @@ V0.2.0
 Added 8th Room
 Half Game Complete
 
+V0.2.1
+Added Menu
+
 > Open this page at [https://kapilraz-rgb.github.io/super-maze/](https://kapilraz-rgb.github.io/super-maze/)
