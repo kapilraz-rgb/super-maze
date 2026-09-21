@@ -937,7 +937,7 @@ let mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 tiles.placeOnTile(mySprite2, tiles.getTileLocation(46, 1))
-Render.setViewAngleInDegree(0)
+Render.setViewAngleInDegree(90)
 Portal_Setup()
 game.onUpdate(function () {
     if (Gold == 5) {
