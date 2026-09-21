@@ -488,6 +488,28 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile29`, function (sprite, 
     game.showLongText("You opened the correct door", DialogLayout.Bottom)
     tiles.setWallAt(tiles.getTileLocation(40, 5), false)
 })
+function MenuUI () {
+    game.splash("Beat the Maze and win $100")
+    myMenu = miniMenu.createMenu(
+    miniMenu.createMenuItem("Play and Win $100"),
+    miniMenu.createMenuItem("Reject the offer")
+    )
+    myMenu.setPosition(80, 49)
+    myMenu.setFlag(SpriteFlag.RelativeToCamera, true)
+    miniMenu.onButtonPressed(myMenu, miniMenu.Button.A, function (selection, selectedIndex) {
+        if (selection == "Play and Win $100") {
+            game.splash("Lets Play")
+            game.splash("You need to Escape")
+            game.splash("This Evil Maze")
+            game.splash("Good Luck")
+            tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
+        } else {
+            game.splash("GET OUT >:C")
+            game.gameOver(false)
+        }
+        miniMenu.close(myMenu)
+    })
+}
 scene.onHitWall(SpriteKind.Projectile, function (sprite, location) {
     if (tiles.tileAtLocationEquals(location, assets.tile`myTile23`)) {
         tiles.setWallAt(location, false)
@@ -516,6 +538,7 @@ let Bill_1: Sprite = null
 let M3v = 0
 let Amount = 0
 let Gold = 0
+let myMenu: Sprite = null
 let cooldown_1 = false
 let O2: Sprite = null
 let B2: Sprite = null
@@ -524,6 +547,7 @@ let O1: Sprite = null
 let projectile: Sprite = null
 let hc = 0
 let mySprite: Sprite = null
+MenuUI()
 tiles.setCurrentTilemap(tilemap`Maze1`)
 mySprite = Render.getRenderSpriteVariable()
 mySprite = Render.getRenderSpriteVariable()
@@ -650,7 +674,7 @@ scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     `)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
+tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 0))
 let Goal = sprites.create(img`
     . . f f f f f f f f f f f f f f f f 
     . . f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
@@ -913,7 +937,7 @@ let mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 tiles.placeOnTile(mySprite2, tiles.getTileLocation(46, 1))
-Render.setViewAngleInDegree(180)
+Render.setViewAngleInDegree(0)
 Portal_Setup()
 game.onUpdate(function () {
     if (Gold == 5) {
